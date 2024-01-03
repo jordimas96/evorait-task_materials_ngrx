@@ -1,0 +1,34 @@
+<h1 *ngIf="!material" class="p-4">Material not found</h1>
+
+<button class="m-2 px-3 py-1" [routerLink]="['']">Return to list</button>
+
+
+<table *ngIf="material" class="m-2">
+    <tr><td>Material:</td>                      <td>{{material.Material}}</td></tr>
+    <tr class="highlight"><td>Quantity:</td>    <td>{{material.Quantity}}</td></tr>
+    <tr><td>DescTxt:</td>                       <td>{{material.DescTxt}}</td></tr>
+    <tr><td>CustomerPrice:</td>                 <td>{{material.CustomerPrice}}</td></tr>
+    <tr><td>CustomerCurrency:</td>              <td>{{material.CustomerCurrency}}</td></tr>
+    <tr><td>RepairPrice:</td>                   <td>{{material.RepairPrice}}</td></tr>
+    <tr><td>RepairCurrency:</td>                <td>{{material.RepairCurrency}}</td></tr>
+    <tr class="highlight"><td>Available:</td>   <td>{{material.Available}}</td></tr>
+    <tr><td>ExtUnit:</td>                       <td>{{material.ExtUnit}}</td></tr>
+    <tr><td>MatStatus:</td>                     <td>{{material.MatStatus}}</td></tr>
+    <tr><td>StorageLoc:</td>                    <td>{{material.StorageLoc}}</td></tr>
+    <tr><td>StorageLocDesc:</td>                <td>{{material.StorageLocDesc}}</td></tr>
+    <tr><td>NDFQuote:</td>                      <td>{{material.NDFQuote}}</td></tr>
+    <tr><td>NDFCounter:</td>                    <td>{{material.NDFCounter}}</td></tr>
+    <tr><td>TSPercentage:</td>                  <td>{{material.TSPercentage}}</td></tr>
+    <tr><td>TSPercentageCounter:</td>           <td>{{material.TSPercentageCounter}}</td></tr>
+    
+    <tr>
+        <td><input type="number" min="0" [max]="material.Available" class="mr-1 w-100" [(ngModel)]="inputQuantity" [class.incorrect]="!inputValueCorrect"></td>
+        <td><button class="" (click)="clickBook()" [disabled]="!inputQuantity">Book</button></td>
+    </tr>
+
+    <tr>
+        <td><button (click)="back()">← Previous</button></td>
+        <td><button (click)="next()">Next →</button></td>
+    </tr>
+
+</table>

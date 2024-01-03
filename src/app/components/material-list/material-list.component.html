@@ -1,0 +1,16 @@
+<div class="table w-100 p-2">
+    <div class="row no-gutters w-100">
+        <div class="col p-3 text-center">
+            <div>Description text</div>
+            <input class="w-100 mt-2" [(ngModel)]="filterInput">
+        </div>
+        <div class="col p-2 text-center">Customer price</div>
+        <div class="col p-2 text-center">Customer currency</div>
+        <div class="col p-2 text-center">Quantity</div>
+        <div class="col p-2 text-center">Available</div>
+        <div class="col p-2 text-center">Book</div>
+    </div>
+    
+    <app-material-row *ngFor="let material of materials$ | async" [material]="material"/>
+
+</div>

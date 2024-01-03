@@ -1,0 +1,17 @@
+.row {
+    cursor: pointer;
+    border-radius: 1rem;
+
+    &:hover {
+        background-color: #cff;
+    }
+
+}
+
+input.incorrect {
+    background-color: #fcc;
+}
+
+.highlight {
+    color: #48f;
+}
