@@ -2,7 +2,7 @@
     <div class="row no-gutters w-100">
         <div class="col p-3 text-center">
             <div>Description text</div>
-            <input class="w-100 mt-2" [(ngModel)]="filterInput">
+            <input class="w-100 mt-2" [formControl]="filterControl">
         </div>
         <div class="col p-2 text-center">Customer price</div>
         <div class="col p-2 text-center">Customer currency</div>
@@ -11,6 +11,21 @@
         <div class="col p-2 text-center">Book</div>
     </div>
     
-    <app-material-row *ngFor="let material of materials$ | async" [material]="material"/>
+    
+    @for (material of materialsFiltered$ | async; track material.id) {
+        @defer (on viewport) {
+            <app-material-row [material]="material" />
+        }
+        @placeholder {
+            <div class="placeholder p-3">Row out of viewport</div>
+        }
+        @loading {
+            <div>Loading...</div>
+        }
+    }
+    @empty {
+        <div class="no-results p-3">No results found</div>
+    }
+    
 
 </div>

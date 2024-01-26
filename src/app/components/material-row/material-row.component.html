@@ -5,7 +5,7 @@
     <div class="col p-3 text-center highlight">{{ material.Quantity }}</div>
     <div class="col p-3 text-center highlight">{{ material.Available }}</div>
     <div class="col p-3 text-center d-flex">
-        <input type="number" min="0" [max]="material.Available" class="w-50 mr-1" [(ngModel)]="inputQuantity" [class.incorrect]="!inputValueCorrect" (click)="$event.stopPropagation()">
-        <button class="w-50" (click)="clickBook(); $event.stopPropagation()" [disabled]="!inputQuantity">Book</button>
+        <input type="number" min="0" [max]="material.Available" class="w-50 mr-1" [(ngModel)]="inputQuantity" (click)="$event.stopPropagation()">
+        <button class="w-50" (click)="book(); $event.stopPropagation()" [disabled]="!inputQuantity">Book</button>
     </div>
 </div>

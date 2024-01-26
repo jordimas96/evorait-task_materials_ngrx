@@ -65,10 +65,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "evora-task:build:production"
+              "buildTarget": "evora-task:build:production"
             },
             "development": {
-              "browserTarget": "evora-task:build:development"
+              "buildTarget": "evora-task:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -76,7 +76,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "evora-task:build"
+            "buildTarget": "evora-task:build"
           }
         },
         "test": {
@@ -100,8 +100,5 @@
         }
       }
     }
-  },
-  "cli": {
-    "analytics": false
   }
 }

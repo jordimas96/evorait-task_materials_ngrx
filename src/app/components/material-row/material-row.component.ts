@@ -1,31 +1,27 @@
-import { bookMaterial } from '../../store/material.actions';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Material } from '../../classes/material';
+import { Component, Input } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { Material } from '../../classes/material';
+import { bookMaterial } from '../../store/material.actions';
+import { FormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
+import { Utils } from 'src/app/shared/utils';
 
 @Component({
     selector: 'app-material-row',
     templateUrl: './material-row.component.html',
-    styleUrls: ['./material-row.component.scss']
+    styleUrls: ['./material-row.component.scss'],
+    standalone: true,
+    imports: [RouterLink, FormsModule],
 })
 export class MaterialRowComponent {
     @Input() material: Material;
 
-    @Output() book = new EventEmitter<any>();
-
-    @Output() save = new EventEmitter<void>();
-
     public inputQuantity: number;
-
-    inputValueCorrect = true;
 
 
     constructor(private store: Store) { }
 
-    
-    ngOnInit() { }
-
-    clickBook() {
+    public book() {
 
         if (this.inputQuantity > this.material.Available) {
             alert("Not enough items available");
@@ -33,13 +29,5 @@ export class MaterialRowComponent {
         }
 
         this.store.dispatch(bookMaterial({ materialId: this.material.id, amount: this.inputQuantity }))
-
-
-        if (this.inputQuantity > this.material.Available)
-            this.inputQuantity = this.material.Available;
-
-        
-        // this.store.dispatch(saveMaterials());
-
     }
 }

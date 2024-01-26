@@ -1,7 +1,7 @@
 import { createReducer, on } from '@ngrx/store';
 import * as MaterialsActions from './material.actions';
-import { MaterialsService } from '../services/materials.service';
 import { MaterialsState } from './material.state';
+import { Utils } from '../shared/utils';
 
 
 export const initialState: MaterialsState = {
@@ -10,21 +10,15 @@ export const initialState: MaterialsState = {
 
 export const materialsReducer = createReducer(
     initialState,
-    on(MaterialsActions.loadMaterials, (state) => {
-        const savedState = MaterialsService.retrieveState();
-         
-        return {
+    on(MaterialsActions.loadMaterialsSuccess, (state, props) => {
+        const newState = {
             ...state,
-            materials: savedState.materials,
+            materials: props.materials,
         }
+        return newState;
     }),
     on(MaterialsActions.bookMaterial, (state, { materialId, amount }) => {
-        let affectedMaterial = MaterialsService.getMaterialById(state.materials, materialId);
-
-        if (!affectedMaterial) {
-            alert("Incorrect material id");
-            return state;
-        }
+        let affectedMaterial = Utils.getMaterialById(state.materials, materialId);
 
         const newQuantity = affectedMaterial.Quantity + amount;
         const newAvailable = affectedMaterial.Available - amount;
