@@ -49,7 +49,7 @@
                 }
               ],
               "outputHashing": "all",
-              "baseHref": "evorait-task_materials_ngrx"
+              "baseHref": "/evorait-task_materials_ngrx/"
             },
             "development": {
               "buildOptimizer": false,
