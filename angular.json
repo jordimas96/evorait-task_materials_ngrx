@@ -48,8 +48,7 @@
                   "maximumError": "4kb"
                 }
               ],
-              "outputHashing": "all",
-              "baseHref": "evorait-task_materials_ngrx/"
+              "outputHashing": "all"
             },
             "development": {
               "buildOptimizer": false,
