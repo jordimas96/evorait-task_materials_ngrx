@@ -22,7 +22,7 @@
         
         <tr>
             <td><input type="number" min="0" [max]="material.Available" class="mr-1 w-100" [(ngModel)]="inputQuantity"></td>
-            <td><button class="" (click)="book()" [disabled]="!inputQuantity">Book</button></td>
+            <td><button class="" (click)="book()" [disabled]="!inputQuantity||inputQuantity<1">Book</button></td>
         </tr>
 
         <tr>

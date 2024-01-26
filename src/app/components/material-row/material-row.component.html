@@ -6,6 +6,6 @@
     <div class="col p-3 text-center highlight">{{ material.Available }}</div>
     <div class="col p-3 text-center d-flex">
         <input type="number" min="0" [max]="material.Available" class="w-50 mr-1" [(ngModel)]="inputQuantity" (click)="$event.stopPropagation()">
-        <button class="w-50" (click)="book(); $event.stopPropagation()" [disabled]="!inputQuantity">Book</button>
+        <button class="w-50" (click)="book(); $event.stopPropagation()" [disabled]="!inputQuantity||inputQuantity<1">Book</button>
     </div>
 </div>
