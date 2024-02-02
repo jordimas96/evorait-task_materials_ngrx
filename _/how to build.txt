@@ -1,0 +1,1 @@
+ng build --base-href /evorait-task_materials_ngrx/
