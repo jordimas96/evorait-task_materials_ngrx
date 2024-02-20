@@ -1,9 +1,8 @@
 .row {
     cursor: pointer;
-    border-radius: 1rem;
 
     &:hover {
-        background-color: #cff;
+        background-color: hsl(180, 77%, 55%) !important;
     }
 
 }

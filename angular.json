@@ -20,7 +20,6 @@
             "outputPath": "docs/",
             "index": "src/index.html",
             "main": "src/main.ts",
-            "baseHref": "/evorait-task_materials_ngrx/",
             "polyfills": [
               "zone.js"
             ],
